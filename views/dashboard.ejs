@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shariuu- sharing is caring</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <img src="/img/logo.png" alt="Inshare logo" class="logo">
+    <img src="" alt="" srcset="">
+    <p class="lead mb-3" style="padding-top: 50px;">Welcome <%= user.name %></p>
+    <img class="profilePic" src="<%= user.profile_pic %>" alt="" srcset="">
+    <a href="/users/logout" class="btn btn-secondary logoutbtn" >Logout</a>
+    <a href="/editInfo" class="btn btn-secondary editbtn" >Edit profile</a>
+    <section class="upload-container">
+        <form action="">
+            <div class="drop-zone">
+                <div class="icon-container">
+                    <img src="/img/file.svg" draggable="false" class="center" alt="File Icon">
+                    <img src="/img/file.svg" draggable="false" class="left" alt="File Icon">
+                    <img src="/img/file.svg" draggable="false" class="right" alt="File Icon">
+                </div>
+                <input type="file" id="fileInput">
+                <div class="title">Drop your Files here or, <span id="browseBtn">browse</span></div>
+            </div>
+        </form>
+        <div class="progress-container">
+            <div class="bg-progress"></div>
+
+            <div class="inner-container">
+                <div class="status">Uploading...</div>
+                <div class="percent-container">
+                    <span class="percentage" id="progressPercent">0</span>%
+                </div>
+                <div class="progress-bar"></div>
+            </div>
+
+        </div>
+        <div class="sharing-container">
+            <p class="expire">Link expires in 24 hrs</p>
+
+
+            <div class="input-container">
+                <input type="text" id="fileURL" readonly>
+                <img src="/img/copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
+            </div>
+        </div>
+        <% if(file.length >= 1){ %>
+        <table>
+            <tr>
+                <th>File Name</th>
+                <th>Uploaded at</th>
+                <th>Link</th>
+            </tr>
+            <% for(var i=0; i< file.length; i++) {%>
+                <tr>
+                  <td>
+                    <%= file[i].filename%>
+                  </td>
+                  <td>
+                    <%= file[i].createdAt%>
+                  </td>
+                  <td>
+                   <a href="/files/<%= file[i].uuid%>" target="_blank" rel="noopener noreferrer">Download</a>
+                   <a href="/files/delete/<%= file[i].uuid%>" rel="noopener noreferrer">delete</a>
+                  </td>
+                </tr> 
+             <% } %>
+        </table>
+    <% }
+    %>
+
+    </section>
+    <div class="image-vector"></div>
+    <div class="toast">Sample message</div>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

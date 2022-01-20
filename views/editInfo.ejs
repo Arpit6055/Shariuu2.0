@@ -1,0 +1,81 @@
+<div class="row mt-5">
+  
+  <div class="card" style="height: fit-content; width: fit-content; padding: 10px 20px;">
+    <img class="profilePic" style="width: 100px; height: 100px; border-radius: 50%;" src="<%= user.profile_pic %>" alt="" srcset="">
+    <p>Name: <%= user.name %></p>
+    <p>Email: <%= user.email %></p>
+  </div>
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <i class="fas fa-user-plus"></i> Personal Info
+        </h1>
+        <%= include ("./partials/messages"); %>
+        
+        <form action="/editInfo" enctype="multipart/form-data" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="name"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="<%= user.name %>"
+              value="<%= typeof name != 'undefined' ? name : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="<%= user.email %>"
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">New Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Create Password"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="profile_pic">Profile pic</label>
+            <input
+              type="file"
+              id="profile_pic"
+              name="profile_pic"
+              class="form-control"
+              accept="image/*"
+              placeholder="Profile picture"
+              value="<%= typeof profile_pic != 'undefined' ? profile_pic : '' %>"
+            />
+          </div>
+          *note:- Only submit the info to be updated
+          <button type="submit" class="btn btn-primary btn-block">
+            Update
+          </button>
+        </form>
+        <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+      </div>
+    </div>
+  </div>
+  
