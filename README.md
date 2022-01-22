@@ -2,6 +2,8 @@
 
 This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
 
+Deployed at [click here](https://shariuu2.herokuapp.com/)
+
 ### Version: 2.0.0
 
 ### Usage
