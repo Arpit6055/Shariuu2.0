@@ -1,6 +1,6 @@
-# Node.js & Passport Login
+# Shariuu 2.0
 
-This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
+This is a user file sharing app built using Node.js, Express, Passport, Mongoose, EJS and some other packages.
 
 Deployed at [click here](https://shariuu2.herokuapp.com/)
 
